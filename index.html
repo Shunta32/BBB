@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイピングゲーム</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="game-container">
+        <h1>タイピングゲーム</h1>
+        <p id="message">準備ができました！文字をタイピングしてください！</p>
+        <p id="target-letter">A</p>
+        <input type="text" id="input-field" maxlength="1" autofocus />
+        <p id="score">スコア: 0</p>
+        <p id="timer">残り時間: 30秒</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register("/service-worker.js")
+                .then((registration) => {
+                    console.log("サービスワーカーの登録に成功しました:", registration);
+                })
+                .catch((error) => {
+                    console.log("サービスワーカーの登録に失敗しました:", error);
+                });
+        }
+    </script>
+</body>
+</html>
 
